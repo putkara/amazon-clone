@@ -23,7 +23,7 @@ function Product({ title, image, rating, price }) {
             ))}
         </div>
       </div>
-      <img className="" src={alice} alt="alice" />
+      <img className="" src={image} alt="alice" />
       <button>Add to Basket</button>
     </div>
   );
