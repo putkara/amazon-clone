@@ -4,7 +4,7 @@ import StarIcon from "@material-ui/icons/Star";
 import "./Product.css";
 import alice from "./alice.jpg";
 console.log(alice);
-function Product({ title, image, rating, price }) {
+function Product({id, title, image, rating, price }) {
   return (
     <div className="product">
       <div className="product__info">
