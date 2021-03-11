@@ -3,8 +3,22 @@ import React from "react";
 import StarIcon from "@material-ui/icons/Star";
 import "./Product.css";
 import alice from "./alice.jpg";
+import { useStateValue } from "./StateProvider";
 console.log(alice);
-function Product({id, title, image, rating, price }) {
+function Product({ id, title, image, rating, price }) {
+  const [{ basket }, disptach] = useStateValue();
+  console.log("this is the basket>>", basket);
+  const addTobasket = () => {
+    //dispach item into da layer
+    disptach({
+      type: `ADD_TO_BASKET`,
+      id: id,
+      title: title,
+      image: image,
+      price: price,
+      rating: rating,
+    });
+  };
   return (
     <div className="product">
       <div className="product__info">
@@ -24,7 +38,7 @@ function Product({id, title, image, rating, price }) {
         </div>
       </div>
       <img className="" src={image} alt="alice" />
-      <button>Add to Basket</button>
+      <button onClick={addTobasket}>Add to Basket</button>
     </div>
   );
 }
